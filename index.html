@@ -1,13 +1,46 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>mod-4-project</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <title>Tester</title>
+  <link rel="stylesheet" href="src/style.css">
+</head>
+
+<body>
+  <main>
+    <!-- ================= NAVIGATION BAR ================= -->
+    <nav id="navigation-bar">
+      <div id="search-container">
+        <input type="text" placeholder="🔍 Search..." />
+        <button>Search</button>
+      </div>
+    </nav>
+
+    <!-- ================= FILTER SECTION ================= -->
+    <section id="filter-section">
+      <button id="genre-filter">FILTER BY GENRES</button>
+    </section>
+
+    <!-- ================= GENRE TITLE SECTION ================= -->
+    <section id="genre-section">
+      <div class="section-header">
+        <h2 id=".÷">Genres Name</h2>
+        <div class="section-line"></div>
+      </div>
+    </section>
+
+    <!-- ================= MOVIE LIST ================= -->
+    <ul id="movie-list">
+      <li class="movie-card">
+        <div class="movie-info"></div>
+        <div class="movie-image"></div>
+      </li>
+    </ul>    
+  </main>
+
+  <hr>
+  <footer id="footer">
+    © 2026 BUILD BY IBRAHIMA &amp; ZOULKA
+  </footer>
+</body>
 </html>
