@@ -1,47 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Tester</title>
-  <link rel="stylesheet" href="src/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anime Explorer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="src/style.css" />
 </head>
-
 <body>
-  <main>
-    <!-- ================= NAVIGATION BAR ================= -->
-    <nav id="navigation-bar">
-      <div id="search-container">
-        <input type="text" placeholder="🔍 Search..." />
-        <button>Search</button>
+
+  <div id="modal-overlay" class="hidden">
+    <dialog id="modal-box" aria-labelledby="modal-title">
+      <button id="modal-close" aria-label="Close">✕</button>
+      <img id="modal-image" alt="" />
+      <div class="modal-right">
+        <h2 id="modal-title"></h2>
+        <div class="modal-stats">
+          <p><span class="label">Score</span>    <span id="modal-score"></span></p>
+          <p><span class="label">Type</span>     <span id="modal-type"></span></p>
+          <p><span class="label">Episodes</span> <span id="modal-episodes"></span></p>
+          <p><span class="label">Status</span>   <span id="modal-status"></span></p>
+          <p><span class="label">Studios</span>  <span id="modal-studios"></span></p>
+          <p><span class="label">Genres</span>   <span id="modal-genres"></span></p>
+        </div>
+        <p id="modal-overview"></p>
+        <div class="modal-actions">
+          <a id="modal-trailer" class="trailer-btn hidden" target="_blank" rel="noopener noreferrer">▶ Watch Trailer</a>
+          <button id="modal-fave-btn" type="button">Save</button>
+        </div>
       </div>
+    </dialog>
+  </div>
+
+  <header>
+    <h1>ANIME EXPLORER</h1>
+    <form id="search-form">
+      <h2>Search Anime</h2>
+      <label for="search-input">Search</label>
+      <input id="search-input" type="text" placeholder="Search anime…" autocomplete="off" required />
+      <button type="submit">Search</button>
+      <button id="browse-btn" type="button">Browse All</button>
+    </form>
+    <nav aria-label="Filters">
+      <select id="filter-type" aria-label="Filter by type">
+        <option value="">All Types</option>
+        <option value="tv">TV</option>
+        <option value="movie">Movie</option>
+      </select>
+      <select id="filter-score" aria-label="Filter by score">
+        <option value="">Any Score</option>
+        <option value="9">9+ Score</option>
+        <option value="8">8+ Score</option>
+        <option value="7">7+ Score</option>
+      </select>
+      <select id="filter-status" aria-label="Filter by status">
+        <option value="">Any Status</option>
+        <option value="airing">Airing</option>
+        <option value="complete">Finished</option>
+      </select>
+      <button id="random-btn" type="button">Random</button>
+      <button id="saved-btn" type="button">Saved</button>
     </nav>
+  </header>
 
-    <!-- ================= FILTER SECTION ================= -->
-    <section id="filter-section">
-      <button id="genre-filter">FILTER BY GENRES</button>
-    </section>
-
-    <!-- ================= GENRE TITLE SECTION ================= -->
-    <section id="genre-section">
-      <div class="section-header">
-        <h2 id=".÷">Genres Name</h2>
-        <div class="section-line"></div>
-      </div>
-    </section>
-
-    <!-- ================= MOVIE LIST ================= -->
-    <ul id="movie-list">
-      <li class="movie-card">
-        <div class="movie-info"></div>
-        <div class="movie-image"></div>
-      </li>
-    </ul>    
+  <main>
+    <section id="grid" aria-label="Anime results"></section>
+    <div id="load-more-wrap">
+      <p id="loading-text" class="hidden">Loading…</p>
+      <button id="load-more-btn" type="button">Load More</button>
+    </div>
   </main>
 
-  <hr>
-  <footer id="footer">
-    © 2026 BUILD BY IBRAHIMA &amp; ZOULKA
+  <footer>
+    <p>Data from <a href="https://jikan.moe" target="_blank" rel="noopener">Jikan / MyAnimeList</a></p>
   </footer>
-  <script src="./src/fetch-data.js"></script>
+
+  <script type="module" src="src/main.js"></script>
 </body>
 </html>
